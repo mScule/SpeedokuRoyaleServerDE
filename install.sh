@@ -43,11 +43,11 @@ docker network create sr-de-network
 
 echo
 info "building db image..."
-docker build -t speedoku-royale-db db/
+docker build -f db/Dockerfile.dev -t speedoku-royale-db db/
 
 echo
 info "building server de image..."
-docker build -t speedoku-royale-server-de server/
+docker build -f server/Dockerfile.dev -t speedoku-royale-server-de server/
 
 echo
 success "The server and db image, and network has been built :)"
