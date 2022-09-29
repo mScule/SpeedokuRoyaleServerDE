@@ -1,12 +1,11 @@
 FROM ubuntu:22.04
 
-ENV DE_ENV=true
-
 WORKDIR /home/speedoku-royale-server
 
-# Copy the cloned repo and initialization script
-COPY ./de-init.sh .
+# Copy the cloned repo and appsetting files
 COPY ./SpeedokuRoyaleServer .
+COPY ./appsettings.Development.json .
+COPY ./appsettings.json .
 
 # Install .NET 6, CA-Certificates, Git, and SSH
 RUN \
@@ -15,6 +14,9 @@ RUN \
         dotnet6 \
         git
 
-EXPOSE 8000
+# Install Entity framework cli tools
+RUN dotnet tool install --global dotnet-ef
+
+EXPOSE 8000:8000
 
 ENTRYPOINT ["tail", "-f", "/dev/null"]

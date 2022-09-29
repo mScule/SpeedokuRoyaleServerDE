@@ -1,12 +1,14 @@
 #!/bin/bash
+
+# Importing things that makes commandline look fancy
 source cli/text-styling.sh
 source cli/components.sh
 
 # Title
-header "SpeedokuRoyaleServer | Development environment - Setup\n"
+header "SpeedokuRoyaleServer | Development environment - Install\n"
 
 # Input warning
-warning "There are some stuff that you'll have to do before using this setup!\n"
+warning "There are some stuff that you'll have to do before using this installer!\n"
 
 # Prerequisites
 header "Make sure that you have..."
@@ -36,23 +38,35 @@ fi
 echo
 
 # Actual setup
+info "creating network..."
+docker network create sr-de-network
+
+echo
 info "building db image..."
 docker build -t speedoku-royale-db db/
 
+echo
 info "building server de image..."
 docker build -t speedoku-royale-server-de server/
 
-success "The server and db image has been built :)"
+echo
+success "The server and db image, and network has been built :)"
 
+echo
 info "Creating containers from the images..."
-docker run -d --name sr-db-de-container speedoku-royale-db
-docker run -d --name sr-server-de-container speedoku-royale-server-de
+docker run -d \
+    --name    sr-db-de-container \
+    --network sr-de-network \
+    --publish 8000:8000 \
+    speedoku-royale-db
+
+docker run -d \
+    --name    sr-server-de-container \
+    --network sr-de-network \
+    --publish 3306:3306 \
+    speedoku-royale-server-de
 
 # User opens the environment in VS Code...
 header "Opening the environment for the first time:"
-point "Open the \"sr-server-de\" container with VS Code Remote explorer."
+point "Open the \"speedoku-royale-server-de\" container with VS Code Remote explorer."
 point "Open the folder from path /home/speedoku-royale-server"
-point "Run the de-init.sh"
-point "Start the server with dotnet run"
-echo "The server should now run"
-echo "Test that the server runs properly by heading to https://localhost:8000/swagger"
