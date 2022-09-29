@@ -1,0 +1,20 @@
+FROM ubuntu:22.04
+
+ENV DE_ENV=true
+
+WORKDIR /home/speedoku-royale-server
+
+# Copy the cloned repo and initialization script
+COPY ./de-init.sh .
+COPY ./SpeedokuRoyaleServer .
+
+# Install .NET 6, CA-Certificates, Git, and SSH
+RUN \
+    apt-get update && \
+    apt-get install -y \
+        dotnet6 \
+        git
+
+EXPOSE 8000
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]
