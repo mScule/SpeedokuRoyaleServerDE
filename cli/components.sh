@@ -1,6 +1,6 @@
 success () {
     style $GREEN_BG
-    echo -n "Success!"
+    echo -n " Success! "
     style $RESET
 
     style $GREEN $BOLD
@@ -10,7 +10,7 @@ success () {
 
 info () {
     style $BLUE_BG
-    echo -n "Info"
+    echo -n " Info "
     style $RESET
 
     style $BLUE $BOLD
@@ -20,7 +20,7 @@ info () {
 
 question () {
     style $CYAN_BG
-    echo -n "Question"
+    echo -n " Question "
     style $RESET
 
     style $CYAN $BOLD
@@ -31,7 +31,7 @@ question () {
 
 warning () {
     style $YELLOW_BG
-    echo -n "Warning"
+    echo -n " Warning "
     style $RESET
 
     style $YELLOW $BOLD
@@ -41,7 +41,7 @@ warning () {
 
 error () {
     style $RED_BG
-    echo -n "ERROR"
+    echo -n " ERROR "
     style $RESET
 
     style $RED $BOLD
