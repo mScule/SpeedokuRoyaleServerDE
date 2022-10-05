@@ -57,13 +57,13 @@ info "Creating containers from the images..."
 docker run -d \
     --name    sr-db-de-container \
     --network sr-de-network \
-    --publish 8000:8000 \
+    --publish 3306:3306 \
     speedoku-royale-db
 
 docker run -d \
     --name    sr-server-de-container \
     --network sr-de-network \
-    --publish 3306:3306 \
+    --publish 8000:8000 \
     speedoku-royale-server-de
 
 # User opens the environment in VS Code...
