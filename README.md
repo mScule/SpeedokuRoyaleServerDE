@@ -21,6 +21,8 @@ Run the shell scripts in git bash by writing command
 
 ## How to use
 
+***MAKE SURE THAT YOU HAVE DOCKER DESKTOP ON***
+
 To shut down the de, use `down.sh`.
 
 To fire the de back up, use `up.sh`.
