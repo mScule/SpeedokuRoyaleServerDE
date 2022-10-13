@@ -11,13 +11,22 @@ Run the shell scripts in git bash by writing command
 2. After the setup has done it's job, you should be able to open the project
    with the VS Code Remote Explorer.
 
-3. Write `dotnet ef database update`
+![img1](/img/img1.png)
 
-4. After that, write `dotnet run`
+3. From docker container, open path `home/speedoku-royale-server`
 
-5. Head to `https://127.0.0.1:8000/swagger/index.html` to check that the server
+4. Write `dotnet ef database update`
+
+5. After that, write `dotnet run`
+
+6. Open port 8000 manually
+
+![img2](/img/img2.png)
+
+5. Head to `http://127.0.0.1:8000/swagger/index.html` to check that the server
    is up and running!
-
+***REMEMBER TO CHECK THAT YOU ACCESS THE SITE WITH HTTP PROTOCOL!***
+***HTTPS IS CURRENTLY NOT SUPPORTED BY THE SERVER***
 
 ## How to use
 
