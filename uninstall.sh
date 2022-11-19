@@ -21,11 +21,11 @@ then
 elif [[ $ANSWER == "y" || $ANSWER == "Y" ]];
 then
     info "Removing db container..."
-    docker rm sr-db-de-container
+    docker rm --volumes sr-db-de-container
 
     echo
     info "Removing server de container..."
-    docker rm sr-server-de-container
+    docker rm --volumes sr-server-de-container
 
     echo
     info "Removing db image..."

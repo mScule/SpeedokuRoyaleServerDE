@@ -19,14 +19,9 @@ Run the shell scripts in git bash by writing command
 
 5. After that, write `dotnet run`
 
-6. Open port 8000 manually
-
-![img2](/img/img2.png)
-
-5. Head to `http://127.0.0.1:8000/swagger/index.html` to check that the server
+6. Head to `http://localhost:8000/swagger/index.html` to check that the server
    is up and running!
-***REMEMBER TO CHECK THAT YOU ACCESS THE SITE WITH HTTP PROTOCOL!***
-***HTTPS IS CURRENTLY NOT SUPPORTED BY THE SERVER***
+   ***REMEMBER TO CHECK THAT YOU ACCESS THE SITE WITH HTTP PROTOCOL!***
 
 ## How to use
 
